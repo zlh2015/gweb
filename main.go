@@ -3,7 +3,9 @@ package main
 import (
 	"net/http"
 
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"project.com/gweb/gweb"
 )
 
 func loginEndpoint(c *gin.Context) {
@@ -19,6 +21,7 @@ func readEndpoint(c *gin.Context) {
 }
 
 func main() {
+	fmt.Print("hello!")
 	router := gin.Default()
 
 	// Simple group: v1
@@ -37,5 +40,8 @@ func main() {
 		v2.POST("/read", readEndpoint)
 	}
 
+	fmt.Print("hello!")
+	fmt.Print(gweb.DATABASES["type"])
+	fmt.Print("hello!")
 	router.Run(":8080")
 }
